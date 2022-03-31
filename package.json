@@ -16,29 +16,18 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "yarn tree-sitter test",
-    "prepack": "bash ./scripts/update-schema.sh && yarn tree-sitter generate",
-    "release": "standard-version --commit-all",
-    "tree-sitter": "./tree-sitter/target/release/tree-sitter"
-  },
-  "standard-version": {
-    "preset": "angular",
-    "scripts": {
-      "postbump": "rm -r docs && node scripts/generate-playground.js && git add docs"
-    }
+    "test": "npx tree-sitter-cli test",
   },
   "dependencies": {
-    "nan": "^2.14.0"
-  },
-  "devDependencies": {
-    "get-stdin": "^8.0.0",
-    "natural-orderby": "2.0.3",
-    "standard-version": "7.0.0"
+    "nan": "^2.15.0",
   },
   "files": [
     "/src/",
     "/bindings/node/",
     "/binding.gyp",
     "/grammar.js"
-  ]
+  ],
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  }
 }
